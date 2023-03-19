@@ -47,4 +47,4 @@ function amountFor(play, perf) {
     return thisAmount;
 }
 
-export { statement };
+export { statement, amountFor };

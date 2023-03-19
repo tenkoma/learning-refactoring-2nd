@@ -1,4 +1,4 @@
-import { statement } from "../statement.mjs";
+import { statement, amountFor } from "../statement.mjs";
 
 test('BigCo: hamlet', ()=> {
     const plays = {"hamlet": {"name": "Hamlet", "type": "tragedy"}}
@@ -50,4 +50,24 @@ Amount owed is $1,730.00
 You earned 47 credits
 `;
     expect(statement(invoice, plays)).toBe(expected);
+});
+
+test.each([
+    {
+        play: {"name": "Hamlet", "type": "tragedy"},
+        performance: {"playID": "hamlet", "audience": 55},
+        expected: 65000
+    },
+    {
+        play: {"name": "As You Like It", "type": "comedy"},
+        performance: {"playID": "as-like", "audience": 35},
+        expected: 58000
+    },
+    {
+        play: {"name": "Othello", "type": "tragedy"},
+        performance: {"playID": "othello", "audience": 40},
+        expected: 50000
+    },
+])('amountFor($play, $performance), ', async ({play, performance, expected}) => {
+    expect(amountFor(play, performance)).toBe(expected);
 });
