@@ -69,5 +69,5 @@ test.each([
         expected: 50000
     },
 ])('amountFor($play, $performance), ', async ({play, performance, expected}) => {
-    expect(amountFor(performance, play)).toBe(expected);
+    expect(amountFor(performance)).toBe(expected);
 });

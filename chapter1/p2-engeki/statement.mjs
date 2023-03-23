@@ -14,7 +14,7 @@ function statement(invoice, plays) {
         minimumFractionDigits: 2}).format;
 
     for (let perf of invoice.performances) {
-        let thisAmount = amountFor(perf, playFor(perf));
+        let thisAmount = amountFor(perf);
 
         // ボリューム特典のポイントを加算
         volumeCredits += Math.max(perf.audience - 30, 0);
@@ -29,7 +29,7 @@ function statement(invoice, plays) {
     return result;
 }
 
-function amountFor(aPerformance, play) {
+function amountFor(aPerformance) {
     let result = 0;
 
     switch (playFor(aPerformance).type) {
