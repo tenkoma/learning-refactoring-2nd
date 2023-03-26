@@ -11,7 +11,6 @@ function htmlStatement(invoice, plays) {
 function renderPlainText(data) {
   let result = `Statement for ${data.customer}\n`;
   for (let perf of data.performances) {
-    // 注文の内訳を出力
     result += `  ${perf.play.name}: ${usd(perf.amount)} (${perf.audience} seats)\n`;
   }
 
@@ -25,7 +24,6 @@ function renderHtml(data) {
   result += "<table>\n";
   result += `<tr><th>play</th><th>seats</th><th>cost</th></tr>\n`;
   for (let perf of data.performances) {
-    // 注文の内訳を出力
     result += `  <tr><td>${perf.play.name}</td><td>${perf.audience}</td><td>${usd(perf.amount)}</td></tr>\n`;
   }
   result += "</table>\n";
