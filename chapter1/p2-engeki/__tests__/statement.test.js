@@ -1,15 +1,15 @@
-import {statement, htmlStatement} from "../statement.mjs";
+import { statement, htmlStatement } from "../statement.mjs";
 
-test('statement1', () => {
-  const plays = {"hamlet": {"name": "Hamlet", "type": "tragedy"}}
+test("statement1", () => {
+  const plays = { hamlet: { name: "Hamlet", type: "tragedy" } };
   const invoice = {
-    "customer": "BigCo",
-    "performances": [
+    customer: "BigCo",
+    performances: [
       {
-        "playID": "hamlet",
-        "audience": 55
-      }
-    ]
+        playID: "hamlet",
+        audience: 55,
+      },
+    ],
   };
   const expected = `Statement for BigCo
   Hamlet: $650.00 (55 seats)
@@ -19,28 +19,28 @@ You earned 25 credits
   expect(statement(invoice, plays)).toBe(expected);
 });
 
-test('statement2', () => {
+test("statement2", () => {
   const plays = {
-    "hamlet": {"name": "Hamlet", "type": "tragedy"},
-    "as-like": {"name": "As You Like It", "type": "comedy"},
-    "othello": {"name": "Othello", "type": "tragedy"}
+    hamlet: { name: "Hamlet", type: "tragedy" },
+    "as-like": { name: "As You Like It", type: "comedy" },
+    othello: { name: "Othello", type: "tragedy" },
   };
   const invoice = {
-    "customer": "BigCo",
-    "performances": [
+    customer: "BigCo",
+    performances: [
       {
-        "playID": "hamlet",
-        "audience": 55
+        playID: "hamlet",
+        audience: 55,
       },
       {
-        "playID": "as-like",
-        "audience": 35
+        playID: "as-like",
+        audience: 35,
       },
       {
-        "playID": "othello",
-        "audience": 40
-      }
-    ]
+        playID: "othello",
+        audience: 40,
+      },
+    ],
   };
   const expected = `Statement for BigCo
   Hamlet: $650.00 (55 seats)
@@ -52,16 +52,16 @@ You earned 47 credits
   expect(statement(invoice, plays)).toBe(expected);
 });
 
-test('htmlStatement1', () => {
-  const plays = {"hamlet": {"name": "Hamlet", "type": "tragedy"}}
+test("htmlStatement1", () => {
+  const plays = { hamlet: { name: "Hamlet", type: "tragedy" } };
   const invoice = {
-    "customer": "BigCo",
-    "performances": [
+    customer: "BigCo",
+    performances: [
       {
-        "playID": "hamlet",
-        "audience": 55
-      }
-    ]
+        playID: "hamlet",
+        audience: 55,
+      },
+    ],
   };
   const expected = `<h1>Statement for BigCo</h1>
 <table>
@@ -74,28 +74,28 @@ test('htmlStatement1', () => {
   expect(htmlStatement(invoice, plays)).toBe(expected);
 });
 
-test('htmlStatement2', () => {
+test("htmlStatement2", () => {
   const plays = {
-    "hamlet": {"name": "Hamlet", "type": "tragedy"},
-    "as-like": {"name": "As You Like It", "type": "comedy"},
-    "othello": {"name": "Othello", "type": "tragedy"}
+    hamlet: { name: "Hamlet", type: "tragedy" },
+    "as-like": { name: "As You Like It", type: "comedy" },
+    othello: { name: "Othello", type: "tragedy" },
   };
   const invoice = {
-    "customer": "BigCo",
-    "performances": [
+    customer: "BigCo",
+    performances: [
       {
-        "playID": "hamlet",
-        "audience": 55
+        playID: "hamlet",
+        audience: 55,
       },
       {
-        "playID": "as-like",
-        "audience": 35
+        playID: "as-like",
+        audience: 35,
       },
       {
-        "playID": "othello",
-        "audience": 40
-      }
-    ]
+        playID: "othello",
+        audience: 40,
+      },
+    ],
   };
   const expected = `<h1>Statement for BigCo</h1>
 <table>
