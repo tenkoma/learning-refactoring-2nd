@@ -1,6 +1,6 @@
 import {statement} from "../statement.mjs";
 
-test('BigCo: hamlet', () => {
+test('statement1', () => {
   const plays = {"hamlet": {"name": "Hamlet", "type": "tragedy"}}
   const invoice = {
     "customer": "BigCo",
@@ -19,7 +19,7 @@ You earned 25 credits
   expect(statement(invoice, plays)).toBe(expected);
 });
 
-test('BigCo: all', () => {
+test('statement2', () => {
   const plays = {
     "hamlet": {"name": "Hamlet", "type": "tragedy"},
     "as-like": {"name": "As You Like It", "type": "comedy"},
