@@ -5,12 +5,6 @@ function statement(invoice, plays) {
 }
 
 function renderPlainText(data) {
-  function usd(aNumber) {
-    return new Intl.NumberFormat("en-US",
-      { style: "currency", currency: "USD",
-        minimumFractionDigits: 2}).format(aNumber/100);
-  }
-
   let result = `Statement for ${data.customer}\n`;
   for (let perf of data.performances) {
     // 注文の内訳を出力
@@ -20,6 +14,12 @@ function renderPlainText(data) {
   result += `Amount owed is ${usd(data.totalAmount)}\n`;
   result += `You earned ${data.totalVolumeCredits} credits\n`;
   return result;
+}
+
+function usd(aNumber) {
+  return new Intl.NumberFormat("en-US",
+    { style: "currency", currency: "USD",
+      minimumFractionDigits: 2}).format(aNumber/100);
 }
 
 export {statement};
